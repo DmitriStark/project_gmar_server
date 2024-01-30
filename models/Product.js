@@ -7,8 +7,11 @@ const productSchema = new mongoose.Schema({
 	toJSON: {
 		virtuals: true,
 		versionKey: false,
-		
+		transform: function (doc, ret) {
+			ret.id = ret._id; // Rename '_id' to 'id'
+			delete ret._id; // Remove the '_id' property
+		}
 	}
 });
 
-module.exports = mongoose.model('products', productSchema);
+module.exports = mongoose.model('product', productSchema);
