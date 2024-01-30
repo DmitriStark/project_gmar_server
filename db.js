@@ -7,7 +7,7 @@ function connect() {
 	mongoose.connect(`${protocol}://${process.env.ATLAS_HOST}`, {
 		user: process.env.ATLAS_USER,
 		pass: process.env.ATLAS_PASS,
-		dbName: 'oct'
+		dbName: 'test'
 	});
 }
 
