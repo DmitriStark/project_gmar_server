@@ -1,18 +1,16 @@
 require('dotenv').config();
 const express = require('express')
-const User = require('./models/User')
 const app = express()
 const db = require('./db');
 
 db.connect();
 
-app.get('/', (req, res) => {
-    res.send('hi')
+app.use(express.json());
+
+app.get('/ping', (req, res) => {
+    res.send('pong')
 })
 
-app.get('/test', async (req, res) => {
-    const users = await User.find({});
-    res.json(users);
-})
+app.use('/users', require('./routes/usersRoutes'));
 
-app.listen(process.env.PORT)
+app.listen(process.env.PORT || 3000)
