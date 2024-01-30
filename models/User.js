@@ -7,4 +7,4 @@ const userSchema = new mongoose.Schema({
   ver:Number
 });
 
-module.exports = mongoose.model("user", userSchema);
+module.exports = mongoose.model("users", userSchema);
